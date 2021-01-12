@@ -1,0 +1,19 @@
+S -> expr_list
+expr_list -> expr
+expr_list -> expr_list , expr
+expr -> simple_expr
+expr -> simple_expr RELOP simple_expr
+simple_expr -> term
+simple_expr -> sign term
+simple_expr -> simple_expr ADDOP term
+term -> factor
+term -> term MULOP factor
+factor -> identifier
+factor -> constant
+factor -> ( expr )
+factor -> function_ref
+factor -> NOT factor
+function_ref -> identifier
+function_ref -> identifier ( expr_list )
+sign -> +
+sign -> −

@@ -1,0 +1,17 @@
+    [0] = {["constant"] = 8, ["expr"] = 2, ["expr_list"] = 1, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["sign"] = 5, ["simple_expr"] = 3, ["term"] = 4},
+
+    [5] = {["constant"] = 8, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["term"] = 18},
+
+    [9] = {["constant"] = 8, ["expr"] = 20, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["sign"] = 5, ["simple_expr"] = 3, ["term"] = 4},
+
+    [11] = {["constant"] = 8, ["factor"] = 21, ["function_ref"] = 10, ["identifier"] = 7},
+
+    [14] = {["constant"] = 8, ["expr"] = 22, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["sign"] = 5, ["simple_expr"] = 3, ["term"] = 4},
+
+    [15] = {["constant"] = 8, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["sign"] = 5, ["simple_expr"] = 23, ["term"] = 4},
+
+    [16] = {["constant"] = 8, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["term"] = 24},
+
+    [17] = {["constant"] = 8, ["factor"] = 25, ["function_ref"] = 10, ["identifier"] = 7},
+
+    [19] = {["constant"] = 8, ["expr"] = 2, ["expr_list"] = 26, ["factor"] = 6, ["function_ref"] = 10, ["identifier"] = 7, ["sign"] = 5, ["simple_expr"] = 3, ["term"] = 4},

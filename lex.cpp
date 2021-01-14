@@ -6,10 +6,17 @@ bool findStrInVector (std::vector<std::string> strVec, std::string str) {
 
 lex::lex(const std::string user_input) {
     input = user_input;
+    if (user_input == "quit") {
+        exit (0);
+    }
     current_input_pos = &input[0];
 }
 
 lex::~lex() {}
+
+bool lex::is_valid() {
+    return valid;
+}
 
 bool lex::isIdentifier (std::string token) {
     std::regex id ("[a-z]([a-z]|[0-9])*");
@@ -127,6 +134,8 @@ std::vector<std::tuple<std::string, std::string>> lex::parse_input() {
         current_token = get_next_token();
         std::string token_value = std::get<1>(current_token);
         if (token_value == "") {
+            current_token = std::make_tuple("$","");
+            list_of_tokens.push_back(current_token);
             return list_of_tokens;
         }
         
@@ -147,11 +156,4 @@ std::vector<std::tuple<std::string, std::string>> lex::parse_input() {
             list_of_tokens.push_back(current_token);
         }
     }
-}
-
-int main () {
-    std::string inp;
-    std::getline(std::cin, inp);
-    lex l_parser (inp);
-    std::vector<std::tuple<std::string, std::string>> list_of_tokens = l_parser.parse_input();
 }

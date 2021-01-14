@@ -15,6 +15,7 @@ class lex
 {
 private:
     std::string input;
+    bool valid = true;
     const char *current_input_pos;
     std::vector<std::string> RELOP = {"=", "<", "<=", ">", ">=", "<>"};
     std::vector<std::string> ADDOP = {"+", "-", "or"};
@@ -23,6 +24,7 @@ public:
     lex(const std::string user_input);
     std::vector<std::tuple<std::string, std::string>> parse_input();
     std::tuple<std::string, std::string> get_next_token();
+    bool is_valid();
     bool isIdentifier (std::string token);
     bool isConstant (std::string token);
     bool isRELOP (std::string token);

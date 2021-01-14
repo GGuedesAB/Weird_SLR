@@ -14,19 +14,22 @@
 class productions
 {
 private:
-    const std::string delimiter = " -> ";
+    std::vector<std::pair<std::string, std::string>> all_rules;
     std::vector<std::string> heads;
     std::vector<std::vector<std::string>> tails;
     std::vector<std::string> all_symbols;
     // rule A ("A -> b");
     std::map<std::string, std::vector<std::vector<std::string>>> H_T_map;
+    bool created_using_operator = false;
 public:
+    const std::string delimiter = " -> ";
     productions();
     productions operator= (const productions& p);
     void add_production(std::string line);
     std::vector<std::vector<std::string>> get_tail(std::string head);
     std::vector<std::string> get_heads();
     std::vector<std::string> get_all_symbols();
+    std::vector<std::pair<std::string, std::string>> get_all_rules();
     void print_all_productions();
     bool is_non_terminal(std::string symbol);
     ~productions();
@@ -97,23 +100,16 @@ public:
     ~Goto();
 };
 
-class grammar
-{
-private:
-    productions Grammar;
-    std::vector<state> states;
-public:
-    grammar(productions G);
-    void create_states ();
-    ~grammar();
-};
-
 class syntatic
 {
 private:
     //https://stackoverflow.com/questions/9247948/how-to-write-3d-mapping-in-c
+    std::map<unsigned int, std::map<std::string, unsigned int>> GOTO_table;
+    std::map<unsigned int, std::map<std::string, std::string>> ACTION_table;
+    std::vector<unsigned int> state_stack;
 public:
-    syntatic();
+    syntatic(std::map<unsigned int, std::map<std::string, unsigned int>> GOTO_table, std::map<unsigned int, std::map<std::string, std::string>> ACTION_table);
+    void parse_input(std::vector<std::tuple<std::string, std::string>> list_of_tokens, productions P);
     ~syntatic();
 };
 
